@@ -22,6 +22,10 @@ class DiscordBot(commands.Bot):
         api_token = config('API_TOKEN')
         super().run(api_token, reconnect=True)
 
+    async def process_commands(self, msg):
+        ctx = await self.get_context(msg, cls=commands.Context)
+        if ctx.command is not None:
+            await self.invoke(ctx)
     
     async def on_ready(self):
         self.setup_cogs()
