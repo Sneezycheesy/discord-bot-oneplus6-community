@@ -21,6 +21,7 @@ class Topic(commands.Cog):
                 if channel.name == 'mainline':
                     await channel.edit(topic=f'{mainline} is out! https://www.kernel.org/')
 
+
 def setup(bot):
     bot.add_cog(Topic(bot))
     Topic(bot).update_mainline_topic.start()
